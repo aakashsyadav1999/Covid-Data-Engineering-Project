@@ -4,3 +4,5 @@ numpy
 pyyaml
 gdown
 pymongo
+dbt-core
+dbt-snowflake
