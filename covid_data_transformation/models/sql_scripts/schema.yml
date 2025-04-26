@@ -1,0 +1,8 @@
+# filepath: d:\vscode\covid_data_engineering_project\covid_data_transformation\models\schema.yml
+version: 2
+
+sources:
+  - name: coviddataset
+    schema: meta_data
+    tables:
+      - name: COVID_DATA
