@@ -24,9 +24,9 @@ class DataFetchingSrc:
         '''
 
         try: 
-            dataset_url = self.data_ingestion_config.source_url
-            zip_download_dir = self.data_ingestion_config.local_data_file
-            if not os.path.exists(self.data_ingestion_config.data_ingestion_artifacts_dir):
+            dataset_url = self.data_fething_config.source_url
+            zip_download_dir = self.data_fething_config.local_data_file
+            if not os.path.exists(self.data_fething_config.data_ingestion_artifacts_dir):
                 logging.info(f"Downloading data from {dataset_url} into file {zip_download_dir}")
 
             file_id = dataset_url.split("/")[-2]
@@ -43,10 +43,10 @@ class DataFetchingSrc:
         """
         Extracts the zip file into the data directory
         """
-        unzip_path = self.data_ingestion_config.unzip_csv_data
+        unzip_path = self.data_fething_config.unzip_csv_data
         os.makedirs(unzip_path, exist_ok=True)
         try:
-            zip_file_path = self.data_ingestion_config.local_data_file
+            zip_file_path = self.data_fething_config.local_data_file
             if not os.path.exists(zip_file_path):
                 raise FileNotFoundError(f"No such file or directory: '{zip_file_path}'")
             
@@ -65,7 +65,3 @@ class DataFetchingSrc:
             error_message = f"Error occurred during zip extraction: {e}"
             logging.error(error_message)
             #raise NerException(error_message)
-            
-    
-            
-        
