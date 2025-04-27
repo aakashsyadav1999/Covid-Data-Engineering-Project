@@ -6,3 +6,5 @@ gdown
 pymongo
 dbt-core
 dbt-snowflake
+apache-airflow
+snowflake-connector-python
