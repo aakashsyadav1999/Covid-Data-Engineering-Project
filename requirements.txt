@@ -1,9 +1,7 @@
 requests
 pandas 
-numpy 
 pyyaml
 gdown
-pymongo
 dbt-core
 dbt-snowflake
 apache-airflow
