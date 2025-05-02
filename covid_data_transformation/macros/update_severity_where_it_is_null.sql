@@ -1,4 +1,4 @@
-{% macro update_covid_data() %}
+{% macro update_severity_where_it_is_null() %}
     {% set table_schema = 'META_DATA' %}
     {% set table_name = 'COVID_DATA' %}
     {% set column_name = 'SEVERITY_LEVEL' %}
