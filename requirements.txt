@@ -1,8 +1,8 @@
 requests
-pandas 
+pandas
 pyyaml
 gdown
 dbt-core
 dbt-snowflake
-apache-airflow
 snowflake-connector-python
+protobuf>=3.19,<5.0
