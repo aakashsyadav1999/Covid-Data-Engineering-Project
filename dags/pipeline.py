@@ -1,12 +1,14 @@
 from airflow import DAG
 from airflow.operators.python import PythonOperator
+from airflow.operators.bash import BashOperator  # Import BashOperator
 from datetime import datetime
 import logging
 import os
 import sys
 
-# Add the root project directory to the Python path
-sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+# Set the project root dynamically for Docker
+project_root = os.getenv('PROJECT_ROOT', '/opt/airflow')  # Default to /opt/airflow in Docker
+sys.path.append(os.path.join(project_root, 'src'))
 
 from src.pipeline.inference_pipeline import InitiateInference
 
@@ -70,16 +72,30 @@ fetch_data = PythonOperator(
 transform_data = PythonOperator(
     task_id='transform_data_task',
     python_callable=transform_data_task,
-    provide_context=True,
     dag=dag
 )
 
 load_data_to_snowflake = PythonOperator(
     task_id='load_data_to_snowflake_task',
     python_callable=load_data_to_snowflake_task,
-    provide_context=True,
     dag=dag
 )
 
+# Add a BashOperator to run the dbt command
+run_dbt_model = BashOperator(
+    task_id='run_dbt_model_task',
+    bash_command='cd /opt/airflow/covid_Data_transformation && dbt run --select copying_data_into_analytics_DB',
+    dag=dag
+)
+
+
+# Add a BashOperator to run the dbt command
+update_severity_where_it_null = BashOperator(
+    task_id='update_severity_where_it_null_task',
+    bash_command='cd /opt/airflow/covid_Data_transformation && dbt run-operation update_severity_where_it_is_null',
+    dag=dag
+)
+
+
 # Set task dependencies
-fetch_data >> transform_data >> load_data_to_snowflake
+fetch_data >> transform_data >> load_data_to_snowflake >> run_dbt_model >> update_severity_where_it_null
