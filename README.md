@@ -122,5 +122,6 @@ This project is licensed under the MIT License. See the `LICENSE` file for detai
 
 ## ScreenShots
 
+![Workflow](documents_photos/Data_Engineering_workflow.png)
 ![Airflow](documents_photos/Airflow.png)
 ![Snowflake Database](documents_photos/Snowflake_Database.png)
