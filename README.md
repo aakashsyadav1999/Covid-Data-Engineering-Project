@@ -123,4 +123,4 @@ This project is licensed under the MIT License. See the `LICENSE` file for detai
 ## ScreenShots
 
 ![Airflow](documents_photos\Airflow.png)
-![Snowflake Database](D:\vscode\covid_data_engineering_project\documents_photos\Snowflake_Database.png)
+![Snowflake Database](documents_photos\Snowflake_Database.png)
