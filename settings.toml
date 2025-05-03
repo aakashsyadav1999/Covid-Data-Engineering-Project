@@ -1,0 +1,46 @@
+[project]
+name = "covid_data_engineering_project"
+version = "1.0.0"
+description = "A project for COVID data engineering, including data fetching, transformation, and pipeline orchestration."
+authors = ["Aakash Yadav"]
+license = "MIT"
+
+[database]
+host = "localhost"
+port = 5432
+user = "your_username"
+password = "your_password"
+database_name = "covid_data_db"
+
+[logging]
+log_level = "INFO"
+log_file = "logs/project.log"
+
+[airflow]
+dags_folder = "dags"
+logs_folder = "logs"
+config_file = "config/airflow.cfg"
+
+[dbt]
+profiles_dir = "dbt"
+project_dir = "covid_data_transformation"
+
+[artifacts]
+artifacts_dir = "artifacts"
+data_fetch_dir = "artifacts/DataFetchArtifacts"
+data_transformation_dir = "artifacts/DataTransformationArtifacts"
+
+[tests]
+tests_dir = "tests"
+
+[plugins]
+plugins_dir = "plugins"
+
+[src]
+components_dir = "src/components"
+constant_dir = "src/constant"
+entity_dir = "src/entity"
+exception_dir = "src/exception"
+logger_dir = "src/logger"
+pipeline_dir = "src/pipeline"
+utils_dir = "src/utils.py"
