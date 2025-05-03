@@ -119,3 +119,8 @@ This project is licensed under the MIT License. See the `LICENSE` file for detai
     - **design_docs/**: Design documentation for the pipeline.
     - **visualizations/**: Graphs and charts for data insights.
     - **Airflow/**: Screenshots of the Airflow UI and dbt runs.
+
+## ScreenShots
+
+![Airflow](documents_photos\Airflow.png)
+![Snowflake Database](D:\vscode\covid_data_engineering_project\documents_photos\Snowflake_Database.png)
