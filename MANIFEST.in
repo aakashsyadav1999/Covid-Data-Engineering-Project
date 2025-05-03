@@ -1,0 +1,48 @@
+# Include the README file
+include README.md
+
+# Include the license file
+include LICENSE
+
+# Include configuration files
+include airflow_settings.yaml
+include docker-compose.yml
+include Dockerfile
+include Makefile
+include MANIFEST.in
+include requirements.txt
+include settings.py
+include template.py
+
+# Include all files in the config directory
+recursive-include config *
+
+# Include all files in the covid_data_transformation directory
+recursive-include covid_data_transformation *
+
+# Include all files in the dags directory
+recursive-include dags *
+
+# Include all files in the database directory
+recursive-include database *
+
+# Include all files in the dbt directory
+recursive-include dbt *
+
+# Include all files in the src directory
+recursive-include src *
+
+# Include all files in the tests directory
+recursive-include tests *
+
+# Include all files in the artifacts directory
+recursive-include artifacts *
+
+# Include all files in the logs directory
+recursive-include logs *
+
+# Exclude compiled Python files
+exclude **/*.pyc
+
+# Exclude __pycache__ directories
+prune **/__pycache__
